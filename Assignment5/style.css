@@ -1,0 +1,75 @@
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f5f5f5; /* custom background */
+    color: #333; /* text color with good contrast */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header styling */
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #007ACC;
+    color: #fff;
+    padding: 1rem 2%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    margin-left: 1.5em; /* em unit */
+    font-size: 1rem; /* rem unit */
+}
+
+header nav a:hover {
+    text-decoration: underline;
+}
+
+/* Main content styling */
+main {
+    margin-top: 80px; /* space for fixed header */
+    padding: 2vh 5%; /* vh and % units */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main img {
+    width: 200px; /* px unit */
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 2em;
+}
+
+main p {
+    max-width: 600px;
+    text-align: center;
+    font-size: 1.1em; /* em unit */
+    line-height: 1.5;
+}
+
+/* Footer styling */
+footer {
+    background-color: #007ACC;
+    color: #fff;
+    text-align: center;
+    padding: 1em 0;
+}
