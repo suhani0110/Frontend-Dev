@@ -1,0 +1,161 @@
+/* pricing.css */
+
+/* Variables */
+:root{
+  --bg: #f5f7fb;
+  --card-bg: #ffffff;
+  --muted: #64748b;
+  --accent: #0b74d1;        /* used for popular plan highlight */
+  --accent-soft: rgba(11,116,209,0.08);
+  --shadow: 0 6px 18px rgba(15,23,42,0.08);
+  --shadow-strong: 0 10px 30px rgba(11,116,209,0.15);
+}
+
+/* Reset & base */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background:var(--bg);
+  color:#0b1220;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  padding:2rem;
+}
+
+/* Header */
+.site-header{
+  text-align:center;
+  margin-bottom:1.75rem;
+}
+.site-header h1{margin:0;font-size:1.75rem}
+.site-header p{margin:0.35rem 0 0;color:var(--muted)}
+
+/* Plans container - 3 equal columns using flexbox */
+.plans-container{
+  display:flex;
+  gap:1.25rem;
+  justify-content:center;
+  align-items:stretch; /* ensures equal height children */
+}
+
+/* Individual plan card */
+.plan{
+  flex:1 1 0;               /* equal width columns */
+  background:var(--card-bg);
+  border:2px solid rgba(9,10,12,0.04);
+  border-radius:12px;
+  box-shadow:var(--shadow);
+  padding:1.25rem;
+  display:flex;
+  flex-direction:column;    /* to place features and price box vertically */
+  transition: transform 240ms ease, box-shadow 240ms ease, background-color 240ms ease, border-color 240ms ease;
+  position:relative;
+  min-width: 220px;
+}
+
+/* Make sure all boxes visually equal height: features area grows */
+.plan .features{
+  margin:1rem 0;
+  padding-left:1rem;
+  list-style: disc;
+  color:var(--muted);
+  flex:1 1 auto; /* allows features section to grow, pushing price-box to bottom */
+}
+
+/* Plan header */
+.plan-head h2{
+  margin:0;
+  font-size:1.25rem;
+  font-weight:700;
+}
+.plan-head .tag{
+  margin:0.25rem 0 0;
+  color:var(--muted);
+  font-size:0.9rem;
+}
+
+/* Price box sits at bottom */
+.price-box{
+  margin-top:1rem;
+  display:flex;
+  gap:0.75rem;
+  align-items:center;
+  justify-content:space-between;
+}
+
+/* Price styling */
+.price{
+  font-weight:800;
+  font-size:1.25rem;
+}
+.price .currency{font-size:0.8rem;margin-right:3px;color:var(--muted)}
+.price .period{font-weight:600;color:var(--muted);font-size:0.85rem;margin-left:6px}
+
+/* CTA link styled as button */
+a.cta{
+  display:inline-block;
+  padding:0.6rem 0.9rem;
+  text-decoration:none;
+  background:linear-gradient(180deg,#0b74d1,#0866b8);
+  color:white;
+  border-radius:8px;
+  font-weight:700;
+  font-size:0.9rem;
+  box-shadow:0 6px 14px rgba(11,116,209,0.18);
+  transition: transform 180ms ease, box-shadow 180ms ease, opacity 180ms ease;
+}
+a.cta:active{transform:translateY(1px)}
+a.cta:focus{outline:3px solid rgba(11,116,209,0.18);outline-offset:3px}
+
+/* Hover effect for each plan: slightly enlarge & change background color */
+.plan:hover{
+  transform: scale(1.03);
+  box-shadow: 0 14px 40px rgba(2,6,23,0.12);
+  background: linear-gradient(180deg, rgba(255,255,255,1), rgba(249,252,255,1));
+  border-color: rgba(9,10,12,0.08);
+}
+
+/* Popular plan highlight - different border style & subtle background */
+.plan.popular{
+  border: 3px solid var(--accent);
+  background: linear-gradient(180deg, rgba(11,116,209,0.03), var(--card-bg));
+  box-shadow: var(--shadow-strong);
+}
+.plan.popular .popular-badge{
+  position:absolute;
+  top:-12px;
+  left:50%;
+  transform:translateX(-50%);
+  background:var(--accent);
+  color:white;
+  padding:0.25rem 0.6rem;
+  border-radius:999px;
+  font-size:0.75rem;
+  font-weight:700;
+  box-shadow:0 6px 12px rgba(11,116,209,0.18);
+}
+
+/* Slightly stronger hover for popular plan */
+.plan.popular:hover{
+  transform: scale(1.05);
+  box-shadow: var(--shadow-strong);
+  background: linear-gradient(180deg, rgba(11,116,209,0.06), rgba(249,252,255,1));
+}
+
+/* Accessibility & text wrapping */
+.features li{margin:0.5rem 0;font-size:0.95rem}
+
+/* Ensure equal height when text varies: align-items:stretch + flex children already handle it.
+   Use min-height to ensure visually balanced layout on narrow viewports */
+.plan{min-height: 360px}
+
+/* Responsive: stack into single column under 900px (keeps three equal columns above) */
+@media (max-width: 900px){
+  .plans-container{flex-direction:column;gap:1rem}
+  .plan{min-height: auto}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .plan, a.cta{transition: none; transform: none}
+}
