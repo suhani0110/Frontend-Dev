@@ -1,0 +1,119 @@
+
+
+/* Page background and outer padding */
+:root{
+  --page-bg: #f0f4f8;
+  --panel-bg: #ffffff;
+  --accent: #0b74d1;
+  --text: #12202b;
+  --muted: #57636b;
+  --gutter: 2rem;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%;margin:0;font-family: Georgia, "Times New Roman", serif;background:var(--page-bg);color:var(--text);}
+
+/* Page wrap provides padding around main content */
+.page-wrap{
+  max-width:1100px;
+  margin:2rem auto;
+  padding:1.25rem;
+  background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.95));
+  border-radius:10px;
+  box-shadow: 0 10px 30px rgba(6,15,30,0.06);
+  border: 1px solid rgba(6,15,30,0.04);
+}
+
+/* Masthead */
+.masthead-inner{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:0.5rem 0 1rem 0;
+  border-bottom:1px solid rgba(6,15,30,0.04);
+  margin-bottom:1rem;
+}
+.publication{font-size:1.25rem;color:var(--accent);font-weight:800;}
+.pub-date{color:var(--muted);font-style:normal;font-size:0.95rem;}
+
+/* Article container with columns */
+.content{padding:1rem 0;}
+.article{
+  background: transparent;
+  padding: 0.5rem;
+  /* three columns with gap (gutter) */
+  column-count: 3;
+  column-gap: var(--gutter);
+  column-rule: 1px solid rgba(6,15,30,0.06); /* subtle vertical separators */
+  /* ensure balanced columns where possible */
+  widows:2;
+  orphans:2;
+  line-height:1.7;
+  text-align:justify; /* justify all text */
+}
+
+/* Headline spans all columns */
+.headline{
+  margin:0 0 1rem 0;
+  font-family: "Georgia", serif;
+  font-size: clamp(1.5rem, 2.4vw, 2.2rem);
+  line-height:1.05;
+  font-weight:700;
+  color:var(--text);
+  /* column-span: all makes this element occupy full width across columns */
+  -webkit-column-span: all;
+  column-span: all;
+  /* visually separate */
+  padding-bottom:0.35rem;
+  border-bottom: 1px solid rgba(6,15,30,0.04);
+}
+
+/* Paragraph spacing */
+.article p{
+  margin:0 0 1rem 0;
+  font-size:1rem;
+  text-align:justify;
+}
+
+/* Float-left image aligned to the left inside column flow */
+.float-left{
+  float:left;
+  width:40%;
+  max-width:220px;
+  margin:0 1rem 0.8rem 0;
+  border-radius:8px;
+  box-shadow: 0 8px 20px rgba(6,15,30,0.08);
+  display:block;
+}
+
+/* Small screens: collapse to single column for readability */
+@media (max-width: 900px){
+  .article{
+    column-count: 2;
+    column-gap: 1.25rem;
+  }
+  .float-left{ width:45%; max-width:180px; }
+}
+
+@media (max-width: 600px){
+  .page-wrap{ margin:1rem; padding:0.9rem; }
+  .article{
+    column-count: 1;
+    column-gap: 1rem;
+    column-rule: none;
+  }
+  /* When single column, make floated image full width on top */
+  .float-left{
+    float:none;
+    display:block;
+    width:100%;
+    margin:0 0 1rem 0;
+  }
+}
+
+/* Small typographic improvements */
+.article p::first-line{font-weight:600;}
+.article p mark{background:#fff8b1;color:#2b2b00;padding:0 0.18rem;border-radius:3px;}
+
+/* Footer */
+.site-footer{ text-align:center;color:var(--muted); margin-top:1.25rem; font-size:0.95rem; padding-top:0.75rem; border-top:1px solid rgba(6,15,30,0.03); }
