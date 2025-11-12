@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Dashboard — CSS Only</title>
+  <link rel="stylesheet" href="dashboard.css" />
+</head>
+<body>
+  <!-- Fixed header -->
+  <header class="header" role="banner">
+    <div class="header-inner">
+      <h1 class="brand">Acme Dashboard</h1>
+      <nav class="header-actions" aria-label="Top actions">
+        <a href="#" class="icon">🔔</a>
+        <a href="#" class="icon">⚙️</a>
+        <a href="#" class="avatar">AS</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- App layout wrapper (keeps content below fixed header) -->
+  <div class="app">
+    <!-- Sidebar (navigation) -->
+    <aside class="sidebar" role="navigation" aria-label="Main navigation">
+      <nav>
+        <ul class="nav-list">
+          <li><a href="#">Overview</a></li>
+          <li><a href="#">Analytics</a></li>
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">Team</a></li>
+          <li><a href="#">Settings</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <small>Logged in as <strong>Asha</strong></small>
+      </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="main" role="main">
+      <div class="main-inner">
+        <section class="top-row">
+          <div class="box stats">
+            <h2>Quick Stats</h2>
+            <p>Visitors: <strong>12,430</strong></p>
+            <p>New signups: <strong>320</strong></p>
+          </div>
+
+          <div class="box activity">
+            <h2>Recent Activity</h2>
+            <ul>
+              <li>User Rahul created a project</li>
+              <li>Backup completed</li>
+              <li>Sneha commented on issue #24</li>
+            </ul>
+          </div>
+        </section>
+
+        <section class="lower-row">
+          <div class="box chart">
+            <h2>Traffic (Last 30 days)</h2>
+            <p>— chart placeholder —</p>
+          </div>
+
+          <div class="box tasks">
+            <h2>Top Tasks</h2>
+            <ol>
+              <li>Prepare release notes</li>
+              <li>Test payment flow</li>
+              <li>Design review</li>
+            </ol>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
