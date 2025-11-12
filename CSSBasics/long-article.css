@@ -1,0 +1,109 @@
+/* long-article.css */
+
+/* Basic reset & typography */
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  font-family: "Georgia", "Times New Roman", serif;
+  color: #222;
+  background: #fbfcfe;
+  line-height: 1.75;
+}
+
+/* Layout container */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 1.25rem;
+}
+
+/* Header / Title / Byline */
+.site-header {
+  padding: 1.5rem 0;
+  border-bottom: 1px solid rgba(34,34,34,0.06);
+  background: linear-gradient(180deg, rgba(10,30,50,0.02), transparent);
+}
+.article-title {
+  font-size: clamp(1.75rem, 3.0vw, 2.5rem);
+  margin: 0 0 0.35rem 0;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+}
+.byline {
+  margin: 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* Article content */
+.article-content {
+  padding: 1.5rem 0 3rem 0;
+}
+
+/* Paragraph spacing using margins (Box Model) */
+.article-content p {
+  margin: 0 0 1.25rem 0; /* consistent spacing between paragraphs */
+  font-size: 1.05rem;
+  text-align: justify;
+  text-justify: inter-word;
+  transition: background-color 0.15s;
+}
+
+/* ::first-letter - larger styling */
+.article-content p::first-letter {
+  font-size: 2.6rem;          /* larger first letter */
+  font-weight: 700;
+  float: left;                /* classic drop-cap look */
+  line-height: 1;
+  margin-right: 0.45rem;
+  color: #0b4a6f;
+  font-family: Georgia, serif;
+}
+
+/* ::first-line - make the first line bold */
+.article-content p::first-line {
+  font-weight: 700;
+}
+
+/* Style for <mark> highlighted keywords */
+mark {
+  background-color: #fff4b1; /* soft custom highlight */
+  color: #2b2b00;
+  padding: 0.08rem 0.25rem;
+  border-radius: 3px;
+  box-decoration-break: clone; /* safe for wrapped marks */
+}
+
+/* Blockquote emphasis: left border and background color */
+blockquote {
+  margin: 1.25rem 0;
+  padding: 0.9rem 1rem;
+  border-left: 6px solid #0b74a3;
+  background: rgba(11,116,163,0.06);
+  color: #08324a;
+  font-style: italic;
+  border-radius: 4px;
+}
+
+/* Optional: citation styling inside blockquote */
+blockquote cite {
+  display: block;
+  margin-top: 0.5rem;
+  font-style: normal;
+  font-weight: 700;
+  color: #054058;
+}
+
+/* Accessibility: focus styles for keyboard users */
+a:focus, button:focus {
+  outline: 3px solid rgba(11,116,163,0.18);
+  outline-offset: 2px;
+}
+
+/* Small-screen responsive adjustments */
+@media (max-width: 600px) {
+  .container { padding: 0.9rem; }
+  .article-title { font-size: 1.5rem; }
+  .article-content p::first-letter { font-size: 2.2rem; margin-right: 0.35rem; }
+  .article-content p { font-size: 1rem; margin-bottom: 1rem; }
+}
