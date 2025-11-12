@@ -1,0 +1,140 @@
+/* Dashboard CSS-only layout */
+
+/* Variables */
+:root{
+  --header-height: 64px;
+  --sidebar-width: 260px;
+  --gap: 1rem;
+  --bg: #f5f8fb;
+  --card-bg: #ffffff;
+  --accent: #0b74d1;
+  --muted: #6b7280;
+  --shadow: 0 10px 30px rgba(6,15,30,0.08);
+  --radius: 10px;
+}
+
+/* Basic reset */
+* { box-sizing: border-box; }
+html,body { height: 100%; margin:0; font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif; background:var(--bg); color:#07203a; }
+
+/* Fixed header at top */
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--header-height);
+  background: linear-gradient(180deg, #ffffff, #f8fbff);
+  border-bottom: 1px solid rgba(9,10,12,0.04);
+  display:flex;
+  align-items: center;
+  z-index: 30;
+  box-shadow: 0 2px 8px rgba(6,15,30,0.02);
+}
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  padding: 0 1rem;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.brand { font-size:1.125rem; font-weight:800; margin:0; color:var(--accent); }
+.header-actions { display:flex; gap:0.5rem; align-items:center; }
+.header-actions .icon { text-decoration:none; font-size:1.1rem; color:var(--muted); padding:0.25rem 0.5rem; }
+.header-actions .avatar { display:inline-flex; align-items:center; justify-content:center; width:36px; height:36px; border-radius:50%; background:var(--accent); color:white; font-weight:700; text-decoration:none; }
+
+/* App wrapper needs top padding to avoid header overlay */
+.app {
+  display:flex;
+  align-items:flex-start;
+  gap:var(--gap);
+  max-width:1200px;
+  margin: 0 auto;
+  padding: calc(var(--header-height) + 1rem) 1rem 2rem 1rem; /* leave space for header */
+  min-height: calc(100vh - var(--header-height));
+}
+
+/* Sidebar: fixed-position on desktop so it stays full-height of viewport */
+.sidebar {
+  width: var(--sidebar-width);
+  background: linear-gradient(180deg,#ffffff,#fbfdff);
+  border:1px solid rgba(9,10,12,0.04);
+  border-radius: var(--radius);
+  padding:1rem;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: calc(var(--header-height) + 1rem); /* stick below header */
+  height: calc(100vh - (var(--header-height) + 2rem)); /* full-ish height minus header + margins */
+  overflow:auto;
+  flex: 0 0 var(--sidebar-width);
+}
+
+/* Navigation list */
+.nav-list { list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:0.25rem; }
+.nav-list a {
+  display:block;
+  padding:0.55rem 0.6rem;
+  color:#0b2740;
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:600;
+}
+.nav-list a:hover { background: rgba(11,116,209,0.06); color:var(--accent); }
+
+/* Sidebar footer */
+.sidebar-footer { margin-top:1rem; padding-top:0.75rem; border-top:1px dashed rgba(9,10,12,0.03); color:var(--muted); font-size:0.95rem; }
+
+/* Main content area */
+.main {
+  flex: 1 1 auto;
+  min-width: 0; /* allows content to shrink properly */
+}
+.main-inner { display:flex; flex-direction:column; gap:var(--gap); }
+
+/* Rows of content boxes - two boxes per row */
+.top-row, .lower-row {
+  display:flex;
+  gap:var(--gap);
+  align-items:stretch;
+}
+
+/* Each box */
+.box {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  padding:1rem;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(9,10,12,0.04);
+  flex:1 1 0;
+  display:flex;
+  flex-direction:column;
+  gap:0.5rem;
+}
+
+/* Ensure even height: using align-items:stretch on parent + flex children above */
+.top-row .box, .lower-row .box { min-height: 160px; }
+
+/* Headings inside boxes */
+.box h2 { margin:0; font-size:1rem; font-weight:800; color:#0b3b5e; }
+
+/* Small responsive tweaks */
+@media (max-width: 900px) {
+  .app { padding: calc(var(--header-height) + 0.75rem) 0.75rem 1.5rem 0.75rem; }
+  .sidebar { position: relative; top: auto; height: auto; width: 100%; flex: 0 0 auto; order: -1; } /* make sidebar stack above content */
+  .top-row, .lower-row { flex-direction: column; }
+  .top-row .box, .lower-row .box { min-height: auto; }
+  .app { flex-direction: column; }
+}
+
+/* Very small screens */
+@media (max-width: 480px) {
+  .brand { font-size:1rem; }
+  .header-inner { padding: 0 0.5rem; }
+  .app { padding-left: 0.5rem; padding-right: 0.5rem; }
+  .box { padding:0.85rem; }
+}
+
+/* Accessibility: focus states for keyboard users */
+a:focus { outline: 3px solid rgba(11,116,209,0.16); outline-offset:3px; border-radius:6px; }
