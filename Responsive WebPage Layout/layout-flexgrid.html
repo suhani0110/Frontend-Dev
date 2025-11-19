@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Flex+Grid Layout</title>
+  <link rel="stylesheet" href="layout-flexgrid.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo">MyLogo</div>
+    <nav class="site-nav" aria-label="Main">
+      <a href="#">Home</a>
+      <a href="#">Blog</a>
+      <a href="#">Work</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <main class="site-main">
+    <article class="article">
+      <h1 class="hero">Welcome to the Article</h1>
+
+      <div class="cards">
+        <div class="card">Box 1</div>
+        <div class="card">Box 2</div>
+        <div class="card">Box 3</div>
+      </div>
+
+      <p>Short article content goes here. Keep it minimal for the demo.</p>
+    </article>
+
+    <aside class="sidebar">
+      <h2>Sidebar</h2>
+      <p>Links, widgets, whatever.</p>
+    </aside>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="yr"></span> MySite</p>
+  </footer>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
