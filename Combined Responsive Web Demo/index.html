@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Combined Responsive Web Demo</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">MyResponsiveDemo</div>
+    <nav class="site-nav" aria-label="Main navigation">
+      <a href="#">Home</a>
+      <a href="#">Gallery</a>
+      <a href="#">Cheatsheet</a>
+      <a href="#">Contact</a>
+    </nav>
+  </header>
+
+  <main class="site-main">
+    <!-- Image gallery -->
+    <section class="panel gallery" aria-labelledby="gallery-title">
+      <h2 id="gallery-title">Image Gallery</h2>
+      <div class="gallery-grid">
+        <img src="/mnt/data/e5a6cca4-921e-43e8-889f-8c07567ecc46.png" alt="sample" />
+        <img src="/mnt/data/e5a6cca4-921e-43e8-889f-8c07567ecc46.png" alt="sample" />
+        <img src="/mnt/data/e5a6cca4-921e-43e8-889f-8c07567ecc46.png" alt="sample" />
+        <img src="/mnt/data/e5a6cca4-921e-43e8-889f-8c07567ecc46.png" alt="sample" />
+      </div>
+    </section>
+
+    <!-- Explanation -->
+    <section class="panel explanation" aria-labelledby="explain-title">
+      <h2 id="explain-title">What is Responsive Design?</h2>
+      <p>
+        Responsive web design means building pages that adapt to different screen sizes.
+        Use relative units (%, vw, rem), Flexbox for one-dimensional layouts, Grid for
+        two-dimensional layouts, and media queries to change the layout at breakpoints.
+      </p>
+
+      <ul class="tips">
+        <li><strong>Flexbox</strong> — great for navs and rows.</li>
+        <li><strong>Grid</strong> — perfect for complex, 2D layouts.</li>
+        <li><strong>Media queries</strong> — adjust layout under breakpoints (example: 700px).</li>
+        <li><strong>Clamp()</strong> — makes typography responsive without many queries.</li>
+      </ul>
+    </section>
+
+    <!-- Cheat-sheet preview -->
+    <section class="panel cheatsheet" aria-labelledby="cheat-title">
+      <h2 id="cheat-title">Cheat Sheet Preview</h2>
+      <dl>
+        <dt>Filters</dt>
+        <dd><code>filter: grayscale(100%); transition: filter 200ms;</code></dd>
+
+        <dt>Media Queries</dt>
+        <dd><code>@media (max-width:700px) { ... }</code></dd>
+
+        <dt>Grid</dt>
+        <dd><code>grid-template-columns: repeat(auto-fit, minmax(220px,1fr));</code></dd>
+
+        <dt>Typography</dt>
+        <dd><code>font-size: clamp(1rem, 1.5vw, 1.25rem);</code></dd>
+      </dl>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div>Contact: suhani@example.com</div>
+    <div>© 2025 MyResponsiveDemo</div>
+  </footer>
+</body>
+</html>
