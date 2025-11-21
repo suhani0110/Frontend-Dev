@@ -1,0 +1,110 @@
+/* reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root{
+  --bg: #f7fafc;
+  --card: #ffffff;
+  --accent: #0ea5a4;
+  --muted: #6b7280;
+  --text: #0f172a;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: var(--text);
+  padding: 24px;
+  min-height: 100vh;
+}
+
+/* Header */
+.site-header {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto 20px;
+  padding: 8px 12px;
+}
+
+.logo {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(15,23,42,0.06);
+}
+
+.site-header h1 {
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+
+/* Grid layout: 3 columns on large screens, 2 on medium, 1 on small */
+.grid {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(3, 1fr); /* default: 3 columns */
+}
+
+/* Card style */
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 10px 24px rgba(12,18,28,0.04);
+  transition: transform 220ms ease, box-shadow 220ms ease, background 240ms ease, color 240ms ease;
+  cursor: default;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Title and description */
+.card h2 { font-size: 1.05rem; }
+.card .desc { color: var(--muted); font-size: 0.95rem; }
+
+/* Code block */
+.code {
+  background: #0f172a;
+  color: #f8fafc;
+  padding: 10px;
+  border-radius: 8px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace;
+  font-size: 0.9rem;
+  overflow-x: auto;
+}
+
+/* Hover: gradient background + text color change */
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 22px 48px rgba(12,18,28,0.08);
+  background: linear-gradient(135deg, rgba(14,165,164,0.12), rgba(59,130,246,0.06));
+  color: #052f34; /* darker tint for contrast on gradient */
+}
+
+/* Ensure code block stays readable on hover */
+.card:hover .code {
+  background: rgba(2,6,23,0.9);
+  color: #e6f6f6;
+}
+
+/* Responsive breakpoints */
+@media (max-width: 900px) {
+  .grid { grid-template-columns: repeat(2, 1fr); } /* 2 columns on medium screens */
+}
+
+/* Below 600px: single-column stacked rows */
+@media (max-width: 600px) {
+  body { padding: 16px; }
+  .grid { grid-template-columns: 1fr; } /* stack vertically */
+  .card {
+    flex-direction: column;
+    padding: 14px;
+  }
+  .card h2 { font-size: 1.02rem; }
+  .card .desc { font-size: 0.98rem; }
+  .code { font-size: 0.86rem; }
+}

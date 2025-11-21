@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Responsive Design Principles Summary</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <img src="/mnt/data/e5a6cca4-921e-43e8-889f-8c07567ecc46.png" alt="logo" class="logo">
+    <h1>Responsive Design Principles</h1>
+  </header>
+
+  <main class="grid">
+    <article class="card">
+      <h2>Fluid Layouts</h2>
+      <p class="desc">Layouts that use relative units so elements scale with the viewport.</p>
+      <pre class="code"><code>/* example */
+.container {
+  width: 90%;
+  margin: 0 auto;
+}</code></pre>
+    </article>
+
+    <article class="card">
+      <h2>Flexible Media</h2>
+      <p class="desc">Images, videos and media that resize and preserve aspect ratio.</p>
+      <pre class="code"><code>img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}</code></pre>
+    </article>
+
+    <article class="card">
+      <h2>Breakpoints</h2>
+      <p class="desc">Use media queries to change layout at specific widths.</p>
+      <pre class="code"><code>@media (max-width: 600px) {
+  .grid { grid-template-columns: 1fr; }
+}</code></pre>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <small>Tip: Resize the window to see the layout change below 600px.</small>
+  </footer>
+</body>
+</html>
