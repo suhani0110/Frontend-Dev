@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Responsive CSS Cheat Sheet</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <img class="logo" src="/mnt/data/e5a6cca4-921e-43e8-889f-8c07567ecc46.png" alt="logo" />
+    <h1>Responsive CSS Cheat Sheet</h1>
+  </header>
+
+  <main class="grid">
+    <!-- Use <dl> so each item has a term (dt) + definition (dd) -->
+    <article class="card">
+      <dl>
+        <dt>Filters</dt>
+        <dd>
+          Use <code>filter: grayscale()</code>, <code>sepia()</code>, <code>blur()</code>. Combine with transitions:
+          <code>filter: none; transition: filter 250ms;</code>
+        </dd>
+      </dl>
+    </article>
+
+    <article class="card">
+      <dl>
+        <dt>Media Queries</dt>
+        <dd>
+          <code>@media (max-width: 700px) { ... }</code> - change layout or typography for smaller screens.
+        </dd>
+      </dl>
+    </article>
+
+    <article class="card">
+      <dl>
+        <dt>Responsive Grid</dt>
+        <dd>
+          Use CSS Grid: <code>grid-template-columns: repeat(auto-fit, minmax(240px, 1fr))</code> for fluid 2–3 columns.
+        </dd>
+      </dl>
+    </article>
+
+    <article class="card">
+      <dl>
+        <dt>Flexbox</dt>
+        <dd>
+          Use <code>display:flex</code> with <code>gap</code>, <code>align-items</code>, <code>justify-content</code>. Use <code>flex:1</code> to share space.
+        </dd>
+      </dl>
+    </article>
+
+    <article class="card">
+      <dl>
+        <dt>Typography</dt>
+        <dd>
+          Scale fonts with <code>clamp()</code>: <code>font-size: clamp(1rem, 2vw, 1.25rem);</code> for readable text on all screens.
+        </dd>
+      </dl>
+    </article>
+
+    <article class="card">
+      <dl>
+        <dt>Spacing</dt>
+        <dd>
+          Prefer <code>gap</code> for flex/grid spacing (no manual margin math). Use <code>max-width</code> & centered containers for readable lines.
+        </dd>
+      </dl>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <small>Tip: resize the browser to see the grid convert to stacked rows under 700px.</small>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,130 @@
+/* Reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root{
+  --bg: #f7fafc;
+  --card: #ffffff;
+  --accent: #2563eb;
+  --muted: #6b7280;
+}
+
+/* Page basics */
+body {
+  font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background: var(--bg);
+  color: #111827;
+  padding: 28px;
+  line-height: 1.45;
+}
+
+/* Header */
+.site-header {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  max-width: 1100px;
+  margin: 0 auto 20px;
+  padding: 8px 12px;
+}
+
+.site-header .logo {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.06);
+}
+
+.site-header h1 {
+  font-size: 1.2rem;
+  letter-spacing: -0.3px;
+  color: var(--accent);
+}
+
+/* Grid container: auto-fit for 2-3 columns on wide screens */
+.grid {
+  display: grid;
+  gap: 18px;
+  max-width: 1100px;
+  margin: 0 auto;
+  /* min 240px to allow 2-3 columns depending on width */
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  align-items: start;
+  padding: 6px;
+}
+
+/* Card style */
+.card {
+  background: var(--card);
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
+  transition: transform 220ms ease, box-shadow 220ms ease, filter 220ms ease;
+  cursor: default;
+  display: flex;
+  align-items: center;
+}
+
+/* Hover & focus */
+.card:hover,
+.card:focus-within {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+  filter: saturate(1.03);
+}
+
+/* Definition list inside card */
+.card dl {
+  width: 100%;
+}
+
+/* Term (heading) */
+.card dt {
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #0f172a;
+  font-size: 0.98rem;
+}
+
+/* Description */
+.card dd {
+  margin-left: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.5;
+}
+
+/* Small screens: below 700px convert to stacked rows
+   We present each card as a full-width row, and keep dt above dd (key then value).
+*/
+@media (max-width: 700px) {
+  body { padding: 16px; }
+
+  .grid {
+    grid-template-columns: 1fr; /* single column (stacked rows) */
+  }
+
+  .card {
+    padding: 14px;
+  }
+
+  /* Make the term (key) visibly distinct and slightly narrower visually */
+  .card dt {
+    font-size: 1rem;
+  }
+
+  .card dd {
+    font-size: 0.98rem;
+    margin-top: 6px;
+  }
+}
+
+/* Small accessibility plus: focus for keyboard users */
+.card:focus-within { outline: 3px solid rgba(37,99,235,0.12); outline-offset: 4px; }
+
+/* subtle entrance animation for entire grid */
+@keyframes subtleUp {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.grid { animation: subtleUp 420ms ease both; }
